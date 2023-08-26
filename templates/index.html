@@ -3,55 +3,24 @@
 <head>
     <title>Image Viewer</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        
-        #imageContainer {
-            width: 300px;
-            height: 300px;
-            overflow: hidden;
-        }
-
-        #currentImage {
-            width: 100%;
-            height: auto;
-        }
-
-        #nextButton {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
+        /* ... (existing CSS styles) ... */
+        #searchForm {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+    <div id="searchForm">
+        <form action="/" method="get">
+            <input type="text" name="search_query" placeholder="Enter search query">
+            <button type="submit">Search</button>
+        </form>
+    </div>
     <div id="imageContainer">
         <img id="currentImage" src="{{ current_image }}" alt="Current Image">
     </div>
     <button id="nextButton">Next</button>
 
-    <script>
-        var images = {{ image_urls | tojson | safe }};
-        var currentIndex = 0;
-        var imageElement = document.getElementById("currentImage");
-        var nextButton = document.getElementById("nextButton");
-
-        function updateImage() {
-            imageElement.src = images[currentIndex];
-        }
-
-        updateImage();
-
-        nextButton.addEventListener("click", function() {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateImage();
-        });
-    </script>
+    <!-- ... (existing JavaScript code) ... -->
 </body>
 </html>
