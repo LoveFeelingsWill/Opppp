@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def image_viewer():
-    source = "https://www.bing.com/images/search?q=gojo&form=HDRSC3&pc=EMMX01&first=1"
+    name = "gojo"
+    source = f"https://www.bing.com/images/search?q={name}&form=HDRSC3&pc=EMMX01&first=1"
     data = str(requests.get(source).content)
     pattern = r'https:\/\/[^\s"&]+\.jpg'
     matches = re.findall(pattern, data)
