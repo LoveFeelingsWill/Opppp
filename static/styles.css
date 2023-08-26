@@ -1,0 +1,16 @@
+/* styles.css */
+
+#nextButton {
+    background-color: green;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#nextButton:hover {
+    background-color: darkgreen;
+}
