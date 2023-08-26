@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Image Viewer</title>
-    <!-- ... (styles and other head content) ... -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div id="searchForm">
@@ -18,6 +18,22 @@
     <button id="nextButton">Next</button>
     {% endif %}
 
-    <!-- ... (JavaScript code) ... -->
+    <script>
+        var images = {{ image_urls | tojson | safe }};
+        var currentIndex = 0;
+        var imageElement = document.getElementById("currentImage");
+        var nextButton = document.getElementById("nextButton");
+
+        function updateImage() {
+            imageElement.src = images[currentIndex];
+        }
+
+        updateImage();
+
+        nextButton.addEventListener("click", function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        });
+    </script>
 </body>
 </html>
