@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Viewer</title>
+</head>
+<body>
+    <div id="imageContainer" style="width: 300px; height: 300px; overflow: hidden;">
+        <img id="currentImage" src="{{ current_image }}" style="width: 100%; height: auto;">
+    </div>
+    <button id="nextButton">Next</button>
+
+    <script>
+        var images = {{ image_urls | tojson | safe }};
+        var currentIndex = 0;
+        var imageElement = document.getElementById("currentImage");
+        var nextButton = document.getElementById("nextButton");
+
+        function updateImage() {
+            imageElement.src = images[currentIndex];
+        }
+
+        updateImage();
+
+        nextButton.addEventListener("click", function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        });
+    </script>
+</body>
+</html>
