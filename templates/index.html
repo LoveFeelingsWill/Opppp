@@ -2,25 +2,22 @@
 <html>
 <head>
     <title>Image Viewer</title>
-    <style>
-        /* ... (existing CSS styles) ... */
-        #searchForm {
-            margin-bottom: 20px;
-        }
-    </style>
+    <!-- ... (styles and other head content) ... -->
 </head>
 <body>
     <div id="searchForm">
-        <form action="/" method="get">
-            <input type="text" name="search_query" placeholder="Enter search query">
-            <button type="submit">Search</button>
-        </form>
+        <!-- ... (search form) ... -->
     </div>
+
+    {% if message %}
+    <p>{{ message }}</p>
+    {% else %}
     <div id="imageContainer">
         <img id="currentImage" src="{{ current_image }}" alt="Current Image">
     </div>
     <button id="nextButton">Next</button>
+    {% endif %}
 
-    <!-- ... (existing JavaScript code) ... -->
+    <!-- ... (JavaScript code) ... -->
 </body>
 </html>
