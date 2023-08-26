@@ -2,10 +2,37 @@
 <html>
 <head>
     <title>Image Viewer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        #imageContainer {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        #currentImage {
+            width: 100%;
+            height: auto;
+        }
+
+        #nextButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <div id="imageContainer" style="width: 300px; height: 300px; overflow: hidden;">
-        <img id="currentImage" src="{{ current_image }}" style="width: 100%; height: auto;">
+    <div id="imageContainer">
+        <img id="currentImage" src="{{ current_image }}" alt="Current Image">
     </div>
     <button id="nextButton">Next</button>
 
